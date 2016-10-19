@@ -69,7 +69,7 @@ def merge_sort(a):
     r = len(a)
     if r <= 1:
         return 
-    m = (p+r)/2
+    m = int((p+r)/2)
     left = a[:m]
     right = a[m:r]
     merge_sort(left)
@@ -174,21 +174,21 @@ def judge_same(a, b):
     return 1
    
 def test():
-    max_bit = 32
-    max_v = 2**max_bit -1 
-    max_n = 10**2
-    a = random_int(max_v, max_n)
-    n = len(a)
-    s = timer()
-    # insert_sort(a)
-    # merge_sort(a)
-    # quick_sort(a, 0, n-1)
-    # shell_sort (a)
-    a = radix_sort(a, max_bit)
-    e = timer()
-    print("cost {0} million seconds".format((e-s)*1000))
-    print(a)
-    print(judge(a))
+    for i in range(1,8):    
+        max_bit = 32
+        max_v = 2**max_bit -1
+        max_n = 10**i
+        a = random_int(max_v, max_n)
+        n = len(a)
+        s = timer()
+        # insert_sort(a)
+        # shell_sort (a)
+        # merge_sort(a)
+        # quick_sort(a, 0, n-1)
+        a = radix_sort(a, max_bit)
+        e = timer()
+        print("n = 10^{0}, time cost {1} million seconds".format(i, (e-s)*1000))
+        print(judge(a))
 
 test()
 
