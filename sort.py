@@ -179,11 +179,14 @@ def test():
     max_n = 10**2
     a = random_int(max_v, max_n)
     n = len(a)
+    s = timer()
     # insert_sort(a)
     # merge_sort(a)
     # quick_sort(a, 0, n-1)
     # shell_sort (a)
     a = radix_sort(a, max_bit)
+    e = timer()
+    print("cost {0} million seconds".format((e-s)*1000))
     print(a)
     print(judge(a))
 
